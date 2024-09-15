@@ -3,7 +3,7 @@ import 'package:zenith_todo/data/database.dart';
 import 'package:zenith_todo/util/theme_colors.dart';
 
 class TakeNote extends StatefulWidget {
-  TakeNote({super.key});
+  const TakeNote({super.key});
 
   @override
   State<TakeNote> createState() => _TakeNoteState();
@@ -40,8 +40,11 @@ class _TakeNoteState extends State<TakeNote> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          database.addNote(
-              _noteTitleController.text, _noteDescriptionController.text);
+          if (_noteTitleController.text.isNotEmpty &&
+              _noteDescriptionController.text.isNotEmpty) {
+            database.addNote(
+                _noteTitleController.text, _noteDescriptionController.text);
+          }
 
           Navigator.pop(context);
         },

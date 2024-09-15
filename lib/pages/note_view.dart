@@ -53,8 +53,11 @@ class _NoteViewState extends State<NoteView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          database.updateNote(
-              _noteTitleController.text, _noteDescriptionController.text, id);
+          if (_noteTitleController.text.isNotEmpty &&
+              _noteDescriptionController.text.isNotEmpty) {
+            database.updateNote(
+                _noteTitleController.text, _noteDescriptionController.text, id);
+          }
 
           Navigator.pop(context);
         },

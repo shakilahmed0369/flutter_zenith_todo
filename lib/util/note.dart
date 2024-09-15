@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zenith_todo/pages/note_view.dart';
 import 'package:zenith_todo/util/delete_popup.dart';
 import 'package:zenith_todo/util/theme_colors.dart';
 
@@ -7,9 +6,9 @@ class Note extends StatelessWidget {
   final String title;
   final String description;
   final int index;
-  VoidCallback refresh;
+  final VoidCallback refresh;
 
-  Note({
+  const Note({
     super.key,
     required this.title,
     required this.description,
@@ -42,17 +41,28 @@ class Note extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              description,
-              style: const TextStyle(color: Colors.white),
-            ),
+            title.isNotEmpty
+                ? Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    maxLines: 1,
+                  )
+                : const SizedBox.shrink(),
+            description.isNotEmpty
+                ? Text(
+                    description,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    maxLines: 3,
+                  )
+                : const SizedBox.shrink(),
           ],
         ),
       ),

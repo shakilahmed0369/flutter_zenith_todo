@@ -7,7 +7,7 @@ class Navigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zenith Todo'),
+        title: const Text('Zenith Todo'),
       ),
     );
   }

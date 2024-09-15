@@ -7,8 +7,6 @@ import 'package:zenith_todo/pages/take_note.dart';
 void main() async {
   // init hive
   await Hive.initFlutter();
-  // open a box
-  var noteBox = await Hive.openBox('notes');
 
   // run app
   runApp(const MyApp());
@@ -24,8 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Zenith Todo',
       routes: {
         '/': (context) => const Home(),
-        'takeNote': (context) => TakeNote(),
-        'noteView': (context) => NoteView(),
+        'takeNote': (context) => const TakeNote(),
+        'noteView': (context) => const NoteView(),
       },
     );
   }
