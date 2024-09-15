@@ -68,10 +68,12 @@ class _HomeState extends State<Home> {
                   return Note(
                     title: database.notes[index][0],
                     description: database.notes[index][1],
+                    index: index,
+                    refresh: refresh,
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

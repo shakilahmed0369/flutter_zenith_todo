@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:zenith_todo/pages/home.dart';
+import 'package:zenith_todo/pages/note_view.dart';
 import 'package:zenith_todo/pages/take_note.dart';
 
 void main() async {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Home(),
         'takeNote': (context) => TakeNote(),
+        'noteView': (context) => NoteView(),
       },
     );
   }
